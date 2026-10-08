@@ -5,7 +5,7 @@ st.set_page_config(page_title="Nexus-V", page_icon="🌌")
 st.title("Nexus-V")
 
 API_KEY = st.secrets.get("HUGGINGFACE_API_KEY")  
-MODEL_ID = "mistralai/Mistral-7B-Instruct-v0.2"  
+MODEL_ID = "microsoft/Phi-3-mini-4k-instruct"
 API_URL = "https://api-inference.huggingface.co/models/" + MODEL_ID
 
 if "messages" not in st.session_state:  
