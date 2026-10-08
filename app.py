@@ -2,10 +2,8 @@ import streamlit as st
 import requests  
 import os
 
-st.set_page_config(page_title="Nexus-V", page_icon="🌌")
-
-st.markdown("<style>.stApp {background-color: #0a0a0a; color: #e0e0e0;}</style>", unsafe_allow_html=True)
-
+st.set_page_config(page_title="Nexus-V", page_icon="🌌")  
+st.markdown("<style>.stApp {background-color: #0a0a0a; color: #e0e0e0;}</style>", unsafe_allow_html=True)  
 st.title("🌌 Nexus-V")
 
 API_KEY = st.secrets.get("HUGGINGFACE_API_KEY")  
@@ -30,15 +28,14 @@ with st.chat_message("assistant"):
             st.error("No API Key.")  
         else:  
             try:  
+                # Using chr(34) to avoid quote truncation in the editor  
+                q = chr(34)  
                 s = "You are an entity in Nexus-V. Be raw and real."  
-                p = "System: "  
-                p += s  
-                p += "
+                p = "System: " + s + "
 
 "  
                 for m in st.session_state.messages:  
-                    p += m['role'] + ": "  
-                    p += m['content'] + "  
+                    p += m['role'] + ": " + m['content'] + "  
 "  
                 p += "AI:"
 
